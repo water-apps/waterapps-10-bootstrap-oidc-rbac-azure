@@ -1,0 +1,16 @@
+name: terraform-ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Terraform files exist
+        run: test -f terraform/main.tf && test -f terraform/variables.tf && test -f terraform/outputs.tf
+      - name: Placeholder
+        run: echo "Add terraform fmt/validate once implementation is in place"

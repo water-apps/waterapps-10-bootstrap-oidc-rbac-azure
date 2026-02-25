@@ -1,0 +1,12 @@
+name: apply
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gated-apply:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Placeholder approved-apply flow for Azure OIDC bootstrap"
