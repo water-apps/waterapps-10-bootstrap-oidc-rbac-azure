@@ -8,9 +8,15 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
     steps:
       - uses: actions/checkout@v4
-      - name: Check Terraform files exist
-        run: test -f terraform/main.tf && test -f terraform/variables.tf && test -f terraform/outputs.tf
-      - name: Placeholder
-        run: echo "Add terraform fmt/validate once implementation is in place"
+      - uses: hashicorp/setup-terraform@v3
+      - name: Terraform fmt (check)
+        run: terraform fmt -check -recursive
+      - name: Terraform init (backend disabled for CI validation)
+        run: terraform init -backend=false -input=false
+      - name: Terraform validate
+        run: terraform validate -no-color
