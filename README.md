@@ -89,3 +89,11 @@ docs/
   terraform-ci.yml        # fmt/init/validate checks
   apply.yml               # manual plan/apply via Azure OIDC
 ```
+
+## Documentation
+
+- `docs/ARCHITECTURE.md`
+- `docs/DEPLOYMENT_GUIDE.md`
+- `docs/OPERATIONS_RUNBOOK.md`
+- `docs/SECURITY_BASELINE.md`
+- `docs/bootstrap-sequence.md`
